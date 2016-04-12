@@ -1,25 +1,14 @@
 $icon-font-path: '../fonts/';
 
+@import "_variables";
+@import "_mixins";
+
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -27,14 +16,60 @@ body {
 
 /* Custom page header */
 .header {
+  height: 5rem;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+
+  @include tablet {
+    height: 8rem;
+    @include justify-content(flex-start);
+  }
+
+  @include desktop {
+    height: 8rem;
+    @include justify-content(flex-start);
+  }
+
+  &__brand {
+    @include mobile {
+      width: 100px;
+    }
+
+    @include tablet {
+      margin-left: 40px;
+    }
+
+    @include desktop {
+      margin-left: 60px;
+    }
+  }
+}
+
+/* Main Jumbotron Section */
+.jumbotron {
+  height: 40rem;
+  color: white;
+  border-top: 2px solid $cc-border;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/background-mobile.png') no-repeat center center;
+  background-size: cover;
+  text-align: center;
   border-bottom: 1px solid #e5e5e5;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  @include mobile {
+  }
+
+  .container {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(space-around);
+
+    height: 100%;
+  }
+
+  &__headline {
+    text-shadow: 2px 2px grey;
   }
 }
 
@@ -49,45 +84,40 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
+.button {
+  color: white;
+  height: auto;
+  padding: 10px;
+  border: 0;
+  display: block;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+  cursor: pointer;
+
+  @media (min-width: $mobile-width) {
+    padding: 15px;
+  }
+
+  &--submit {
+    background: $cc-success;
+    width: auto;
+    cursor: pointer;
+    &:hover, &:focus {
+      background: lighten($cc-success, 6.0%);
+      text-decoration: none;
+      color: white;
+    }
+
+    @media(min-width: $tablet-width) {
+      min-width: 90px;
+    }
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
-}
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+// Apply this class with button--submit class for use at bottom of forms
+.full-width {
+  width: 100%;
+  max-width: 100% !important;
+  border-radius: 0;
 }
