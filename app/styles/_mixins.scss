@@ -418,3 +418,38 @@ $desktop-width: 1080px;
     @content;
   }
 }
+
+
+/*===============================
+=            Buttons            =
+===============================*/
+@mixin button {
+  color: white;
+  height: auto;
+  padding: 10px;
+  border: 0;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+
+  @include mobile {
+    padding: 15px;
+  }
+}
+
+@mixin button--submit {
+  @include button;
+
+  background: $cc-success;
+  width: auto;
+  cursor: pointer;
+  &:hover, &:focus {
+    background: lighten($cc-success, 6.0%);
+    text-decoration: none;
+    color: white;
+  }
+
+  @media(min-width: $tablet-width) {
+    min-width: 90px;
+  }
+}
