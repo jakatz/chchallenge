@@ -60,8 +60,22 @@ h1 {
   background-size: cover;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  &__headline {font-size: 2rem;}
 
-  @include mobile {
+  @include tablet {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/background-tablet.png') no-repeat center center;
+    &__headline {
+      font-size: 3rem;
+      padding: 0 15rem 4rem;
+      &__sub {
+        font-size: 2rem;
+        padding: 0 20rem;
+      }
+    }
+  }
+
+  @include desktop {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/background-desktop.png') no-repeat center center;
   }
 
   .container {
@@ -88,6 +102,15 @@ h1 {
 .get-quote {
   @include button--submit;
   @include flexbox;
+  @include align-items(center);
+  @include justify-content(space-between);
+
+  >span { margin-left: 40px; }
+  >i { margin-right: 10px; font-size: 1.2rem; }
+  font-size: 1.6rem;
+
+  width: 250px;
+  height: 35px;
 }
 
 .insurance-options {
@@ -98,6 +121,7 @@ h1 {
     &__item {
       @include flexbox;
       @include align-items(center);
+      margin: 2rem 0;
 
       div {
         margin-left: 1rem;
@@ -106,7 +130,64 @@ h1 {
   }
 }
 
+.why-coverhound {
+  .fa-chevron-circle-right {
+    color: $cc-arrow-bg;
+    margin-top: 0.4rem;
+  }
 
+  &__item {
+    @include flexbox;
+    margin: 1rem 0;
+
+    >div {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.feature-media__content {
+  background-color: $cc-background-secondary;
+  height: 20rem;
+  @include flexbox;
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.customer-satisfaction {
+  &__content {
+    >h1 {padding: 2rem;}
+    text-align: center;
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+  }
+
+  p {
+    line-height: 2.2rem;
+    font-style: italic;
+  }
+
+  img {
+    width: 125px;
+    margin: 3rem;
+  }
+}
+
+.coverage {
+  text-align: center;
+  color: white;
+  padding: 4rem 2rem;
+  background: $cc-background-primary;
+
+  &__content {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(center);
+  }
+}
 
 // Apply this class with button--submit class for use at bottom of forms
 .full-width {
