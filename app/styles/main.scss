@@ -57,7 +57,7 @@ h1 {
 }
 
 /* Main Jumbotron Section */
-.jumbotron {
+#banner {
   height: 40rem;
   color: white;
   border-top: 2px solid $cc-border;
@@ -81,6 +81,9 @@ h1 {
 
   @include desktop {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/background-desktop.png') no-repeat center center;
+    &__headline {
+      font-size: 1px;
+    }
   }
 
   .container {
@@ -90,6 +93,10 @@ h1 {
     @include justify-content(space-around);
 
     height: 100%;
+
+    @include desktop {
+      @include flex-direction(row);
+    }
   }
 
   &__headline {
@@ -130,6 +137,11 @@ h1 {
       @include flex-direction(row);
       @include flex-wrap(wrap);
     }
+
+    @include desktop {
+      @include flex-direction(row);
+    }
+
     &__item {
       @include flexbox;
       @include align-items(center);
@@ -149,6 +161,16 @@ h1 {
         >div {
           margin-left: 0;
           padding: 1rem 9rem;
+        }
+        @include flex-direction(column);
+      }
+
+      @include desktop {
+        width: 25%;
+        text-align: center;
+        >div {
+          margin-left: 0;
+          padding: 1rem 3rem;
         }
         @include flex-direction(column);
       }
@@ -199,7 +221,25 @@ h1 {
     &__details {
       @include tablet {
         @include flexbox;
-        >div {width: 50%;}
+        >div {
+          @include flexbox;
+          @include flex-direction(column);
+          @include justify-content(center);
+          @include align-items(center);
+          width: 50%;
+        }
+        padding: 1rem 4rem 4rem;
+      }
+
+      @include desktop {
+        @include flexbox;
+        >div {
+          width: 50%;
+          @include flexbox;
+          @include flex-direction(column);
+          @include justify-content(center);
+          @include align-items(center);
+        }
         padding: 1rem 4rem 4rem;
       }
     }
@@ -215,6 +255,10 @@ h1 {
     margin: 3rem;
 
     @include tablet {
+      width: 150px;
+    }
+
+    @include desktop {
       width: 150px;
     }
   }
