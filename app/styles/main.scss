@@ -11,6 +11,11 @@ $icon-font-path: '../fonts/';
 h1 {
   color: $cc-h1;
   font-size: 2rem;
+
+  @include tablet {
+    font-size: 3rem;
+    font-weight: 200;
+  }
 }
 
 .header,
@@ -118,13 +123,34 @@ h1 {
     width: 40px;
   }
   &__options {
+    @include flexbox;
+    @include flex-direction(column);
+
+    @include tablet {
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+    }
     &__item {
       @include flexbox;
       @include align-items(center);
       margin: 2rem 0;
 
       div {
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(center);
         margin-left: 1rem;
+        padding: 1rem;
+      }
+
+      @include tablet {
+        width: 50%;
+        text-align: center;
+        >div {
+          margin-left: 0;
+          padding: 1rem 9rem;
+        }
+        @include flex-direction(column);
       }
     }
   }
@@ -153,6 +179,12 @@ h1 {
   @include flex-direction(column);
   @include align-items(center);
   @include justify-content(center);
+
+  &__images {
+    @include tablet {
+      padding: 2rem 6rem;
+    }
+  }
 }
 
 .customer-satisfaction {
@@ -163,6 +195,14 @@ h1 {
     @include flex-direction(column);
     @include align-items(center);
     @include justify-content(center);
+
+    &__details {
+      @include tablet {
+        @include flexbox;
+        >div {width: 50%;}
+        padding: 1rem 4rem 4rem;
+      }
+    }
   }
 
   p {
@@ -173,6 +213,10 @@ h1 {
   img {
     width: 125px;
     margin: 3rem;
+
+    @include tablet {
+      width: 150px;
+    }
   }
 }
 
