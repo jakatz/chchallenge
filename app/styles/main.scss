@@ -8,7 +8,11 @@ $icon-font-path: '../fonts/';
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
+h1 {
+  color: $cc-h1;
+  font-size: 2rem;
+}
+
 .header,
 .footer {
   padding-left: 15px;
@@ -83,12 +87,23 @@ $icon-font-path: '../fonts/';
 
 .get-quote {
   @include button--submit;
-
   @include flexbox;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.insurance-options {
+  img {
+    width: 40px;
+  }
+  &__options {
+    &__item {
+      @include flexbox;
+      @include align-items(center);
+
+      div {
+        margin-left: 1rem;
+      }
+    }
+  }
 }
 
 
